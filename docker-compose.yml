@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST : ${DATABASE_HOST}
+      POSTGRES_USER : ${DATABASE_USER}
+      POSTGRES_PASSWORD : ${DATABASE_PASSWORD}
+      POSTGRES_DB : ${DATABASE_NAME}
+    ports:
+      - 5432:5432
+
+volumes:
+  db:
+
