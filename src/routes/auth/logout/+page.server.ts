@@ -1,8 +1,8 @@
 import { lucia } from "$lib/server/db";
-import { fail, type Actions } from "@sveltejs/kit";
+import { fail, redirect, type Actions } from "@sveltejs/kit";
 
 export const actions: Actions = {
-    default: async(event) => {
+    logout: async(event) => {
         const userId = event.cookies.get("user_id")
         const sessionId = event.cookies.get("auth_session")
         if(!userId || !sessionId) return fail(401)
@@ -17,5 +17,6 @@ export const actions: Actions = {
         event.cookies.delete("user_id", {path:"."})
         event.cookies.delete("user", {path:"."})
 
+        redirect(303, '/auth/login')
     }
 }

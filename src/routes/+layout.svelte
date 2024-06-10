@@ -1,7 +1,6 @@
 <script lang="ts">
-    import AppFooter from "$lib/components/AppFooter.svelte";
-    import AppHeader from "$lib/components/AppHeader.svelte";
-	import { onMount } from "svelte";
+    import AppFooter from "$lib/components/layout/AppFooter.svelte";
+    import AppHeader from "$lib/components/layout/AppHeader.svelte";
     export let data
 
     $: username = data.username

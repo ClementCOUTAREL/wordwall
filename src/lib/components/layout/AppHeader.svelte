@@ -10,11 +10,11 @@
         <ul>
             <li>
                 {#if username == "" || username== null} 
-                    <a href="/login">Login</a>
+                    <a href="/auth/login">Login</a>
                 {:else} 
                 <div>
                     <p>{username}</p>
-                    <form method="POST" action="/logout">
+                    <form method="POST" action="/auth/logout?/logout">
                         <input type="submit" value="Logout">
                     </form>
                 </div>

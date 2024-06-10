@@ -12,9 +12,9 @@
     
 {#if loading} <p>Loading ....</p> {/if}
 
-<h2>{mode === LoginMode.login ? "Sign in" : "Create your account" }</h2>
+<h2>Sign in</h2>
 
-<form action={mode === LoginMode.login ? "?/login" : "?/register"} method="POST" use:enhance={() => {
+<form action="/auth/login?/login" method="POST" use:enhance={() => {
         loading = true
 
         return async({update}) => {
@@ -43,7 +43,7 @@
 </form>
 </div>
 
-<a href="/register">No account ? Register here</a>
+<a href="/auth/register">No account ? Register here</a>
 
 <style>
     form {

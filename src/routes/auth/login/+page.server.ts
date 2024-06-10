@@ -10,6 +10,7 @@ export const actions: Actions = {
         const form = await event.request.formData()
         let username = form.get("username")
         let password = form.get("password")
+        
 
         if(!username) errors.username = 'No username provided'
         if(username!.toString().length < 3) errors.username = "Username too short"
@@ -41,12 +42,12 @@ export const actions: Actions = {
         })
 
         event.cookies.set('user_id', user[0].id,{
-            path:'.'
+            path:'/'
         })
         event.cookies.set('user', user[0].username,{
-            path:'.'
+            path:'/'
         })
 
-        redirect(302,"/")
+        redirect(302,"/dashboard")
     }
 }

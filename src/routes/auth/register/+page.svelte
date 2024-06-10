@@ -2,7 +2,6 @@
     import { LoginMode } from "$lib/types/auth.js";
     import {enhance} from '$app/forms'
     export let form
-    let mode : LoginMode = LoginMode.register
 
     $: loading = false
     $:username = ""
@@ -49,7 +48,7 @@
 
 </div>
 
-<a href="/login">Already registered ? Sign in here</a>
+<a href="/auth/login">Already registered ? Sign in here</a>
 
 <style>
     form {

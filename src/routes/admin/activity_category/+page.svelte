@@ -1,0 +1,1 @@
+<h2>Activity categories</h2>

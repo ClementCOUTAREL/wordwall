@@ -53,10 +53,10 @@ export const actions : Actions =  {
         })
 
         event.cookies.set('user_id', userId,{
-            path:'.'
+            path:'/'
         })
         event.cookies.set('user', result[0].username,{
-            path:'.'
+            path:'/'
         })
 
         redirect(303, '/dashboard')
