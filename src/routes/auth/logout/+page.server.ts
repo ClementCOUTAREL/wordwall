@@ -14,9 +14,9 @@ export const actions: Actions = {
             ...sessionCookie.attributes
         })
 
-        event.cookies.delete("user_id", {path:"."})
-        event.cookies.delete("user", {path:"."})
+        event.cookies.delete("user_id", {path:"/"})
+        event.cookies.delete("user", {path:"/"})
 
-        redirect(303, '/auth/login')
+        return redirect(303, '/auth/login')
     }
 }

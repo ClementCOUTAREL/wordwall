@@ -6,8 +6,11 @@
 <div class=container>
     <aside class="controls">
         <button type=button><a href="/activity/new">Créer une activité</a></button>
-        <button type=button> <p>Créer un dossier</p></button>
-        <form method="POST" action="">
+        <form method="POST" action="?/create">
+            <input type="hidden" name="userId" value={data.userId}>
+            <button type=submit>Créer un dossier</button>
+        </form>
+        <form method="POST" action="/search">
             <input type="search" name="activity">
             <input type="submit" value="Search">
         </form>
@@ -23,16 +26,17 @@
         </div>
     </aside>
                     
+    {#if data.folders}
+        <div class="activities_folders">
+            {#each data.folders as folder }
+                <p>{folder.name}</p>
+            {/each}
+        </div>
+    {/if}
+    
     <div class="activities">
         <h2>Mes activités</h2>
 
-        {#if data.folders}
-            <div class="activities_folders">
-                {#each data.folders as folder }
-                    <p>{folder.name}</p>
-                {/each}
-            </div>
-        {/if}
 
         {#if data.activities}
             <div class="activities_list">

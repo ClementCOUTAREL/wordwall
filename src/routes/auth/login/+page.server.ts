@@ -20,9 +20,12 @@ export const actions: Actions = {
         if(password!.toString().length < 10) errors.password = "Password too short"
         if(password!.toString().length > 50) errors.password = "Password too long"
 
+        console.log();
+        
         
         const user = await db.select().from(usersTable).where(eq(usersTable.username,username!.toString()))
         if(user.length == 0) errors.username = 'No account registered with the username provided' 
+        console.log(user);
 
         const validPassword = await verify(user[0].password, password!.toString(),{
             memoryCost: 19456,

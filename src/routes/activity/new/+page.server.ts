@@ -1,10 +1,12 @@
 import { db } from "$lib/server/db";
-import { activityCategoriesTable } from "$lib/server/schema";
+import { activityCategoriesTable, activityTable } from "$lib/server/schema";
 
-export async function load(){
+export async function load(event){
     const activities = await db.select().from(activityCategoriesTable)
+    const userId = await event.cookies.get("user_id")?.toString()
 
     return {
-        activities:activities
+        activities,
+        userId
     }
 }

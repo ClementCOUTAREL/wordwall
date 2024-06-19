@@ -26,7 +26,7 @@ export const activityFolderTable = pgTable("activity_folder",{
 
 export const activityTable = pgTable("activity", {
     id: serial("id").primaryKey(),
-    name:text("name").notNull().unique(),
+    name: text("name").notNull().unique(),
     createdAt: date("created_at").notNull().defaultNow(),
     updatedAt: date("updated_at").notNull().defaultNow(),
     categoryId: integer('category_id').notNull().references(() => activityCategoriesTable.id),
